@@ -40,8 +40,6 @@ function MainPage() {
     { id: 7, points: "50.5,68.5 100,68.5 100,100 50.5,100" },
   ];
 
-
-
   const allCleared = clearedPieces.length === pieces.length;
 
   const handleClick = (id) => navigate(`/game/${id}`);
@@ -66,7 +64,7 @@ function MainPage() {
         <div className="w-full max-w-md aspect-square relative mb-6 -mt-16">
           {/* 지도 (바탕) */}
           <img
-            src="/icons/ico_map.png"
+            src="/icons/ico_map.webp"
             alt="map"
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -91,14 +89,14 @@ function MainPage() {
                 !clearedPieces.includes(p.id) && (
                   <image
                     key={`mask-${p.id}`}
-                    href="/icons/ico_map_black.png" // 전체 마스킹 이미지
+                    href="/icons/ico_map_black.webp" // 전체 마스킹 이미지
                     x="0"
                     y="0"
                     width="100%"
                     height="100%"
                     preserveAspectRatio="none"
                     clipPath={`url(#clip-${p.id})`}
-                    // onClick={() => handleClick(p.id)}
+                    onClick={() => handleClick(p.id)}
                   />
                 )
             )}
@@ -111,7 +109,7 @@ function MainPage() {
             return (
               <img
                 key={`lock-${p.id}`}
-                src="/icons/icon_big_lock.png" // 🔒 자물쇠 이미지 경로
+                src="/icons/icon_big_lock.webp" // 🔒 자물쇠 이미지 경로
                 alt="잠금"
                 className="absolute w-6 h-6 pointer-events-none"
                 style={{
@@ -131,7 +129,7 @@ function MainPage() {
             to="/map"
             className="w-16 h-16 flex items-center justify-center"
             style={{
-              backgroundImage: "url('/icons/btn_hex_green.png')",
+              backgroundImage: "url('/icons/btn_hex_green.webp')",
               backgroundSize: "contain",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
@@ -143,13 +141,12 @@ function MainPage() {
             to="/scan"
             className="w-32 h-16 flex items-center justify-center text-white font-bold"
             style={{
-              backgroundImage: "url('/icons/btn_rectangle_pressed_blue.png')",
+              backgroundImage: "url('/icons/btn_rectangle_pressed_blue.webp')",
               backgroundSize: "contain",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
             }}
-          >
-          </Link>
+          ></Link>
 
           {/* 쿠폰 버튼 (완료/보기 통합) */}
           {allCleared && (
@@ -159,14 +156,12 @@ function MainPage() {
               }
               className="w-16 h-16 flex items-center justify-center text-white font-bold"
               style={{
-                backgroundImage:
-                  "url('/icons/btn_ticket.png')", // 쿠폰 전용 버튼 이미지
+                backgroundImage: "url('/icons/btn_ticket.webp')", // 쿠폰 전용 버튼 이미지
                 backgroundSize: "contain",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
               }}
-            >
-            </button>
+            ></button>
           )}
         </div>
 

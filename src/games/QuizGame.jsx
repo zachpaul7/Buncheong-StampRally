@@ -92,7 +92,7 @@ function QuizGame({ id, onClear, onExit }) {
       <div
         className="w-full max-w-md relative flex flex-col items-center justify-center mb-6"
         style={{
-          backgroundImage: "url('/panels/panel_framehead_night.png')",
+          backgroundImage: "url('/panels/panel_framehead_night.webp')",
           backgroundSize: "100% 100%",
           backgroundRepeat: "no-repeat",
           minHeight: "150px",
@@ -102,7 +102,7 @@ function QuizGame({ id, onClear, onExit }) {
         <div
           className="absolute -top-6 left-1/2 transform -translate-x-1/2 flex items-center justify-center"
           style={{
-            backgroundImage: "url('/panels/head_ribbon_shade_blue.png')",
+            backgroundImage: "url('/panels/head_ribbon_shade_blue.webp')",
             backgroundSize: "100% 100%",
             backgroundRepeat: "no-repeat",
             width: "60%",
@@ -119,7 +119,7 @@ function QuizGame({ id, onClear, onExit }) {
                 1px -1px 0 #000,
                 -1px  1px 0 #000,
                 1px  1px 0 #000
-              `
+              `,
             }}
           >
             {idx + 1} / {questions.length}
@@ -131,17 +131,18 @@ function QuizGame({ id, onClear, onExit }) {
           className="absolute w-full px-6 text-center"
           style={{
             top: "57%",
-            transform: "translateY(-50%)"
+            transform: "translateY(-50%)",
           }}
         >
-          <span className="text-white font-semibold text-lg leading-snug drop-shadow"
+          <span
+            className="text-white font-semibold text-lg leading-snug drop-shadow"
             style={{
               textShadow: `
                 -2px -2px 0 #3e5bb7,  
                 2px -2px 0 #3e5bb7,
                 -2px  2px 0 #3e5bb7,
                 2px  2px 0 #3e5bb7
-              `
+              `,
             }}
           >
             {q.q}
@@ -153,7 +154,7 @@ function QuizGame({ id, onClear, onExit }) {
       <div
         className="flex flex-col gap-4 w-full max-w-md py-8 px-4 bg-transparent"
         style={{
-          backgroundImage: "url('/panels/panel_frame_night.png')",
+          backgroundImage: "url('/panels/panel_frame_night.webp')",
           backgroundSize: "100% 100%",
           backgroundRepeat: "no-repeat",
         }}
@@ -164,17 +165,22 @@ function QuizGame({ id, onClear, onExit }) {
             onClick={(e) => handleAnswer(i, e)}
             className="relative w-full h-16 flex items-center justify-center text-lg font-medium text-gray-800 bg-transparent"
             style={{
-              backgroundImage: "url('/panels/btn_rectangle_silver.png')",
+              backgroundImage: "url('/panels/btn_rectangle_silver.webp')",
               backgroundSize: "100% 100%",
               backgroundRepeat: "no-repeat",
             }}
           >
-            {c.text &&
-              <span className="text-gray-700 font-bold text-lg drop-shadow absolute left-1/2 transform -translate-x-1/2"
+            {c.text && (
+              <span
+                className="text-gray-700 font-bold text-lg drop-shadow absolute left-1/2 transform -translate-x-1/2"
                 style={{
                   top: "45%",
-                  transform: "translate(-50%, -50%)"
-                }}>{c.text}</span>}
+                  transform: "translate(-50%, -50%)",
+                }}
+              >
+                {c.text}
+              </span>
+            )}
             {c.img && (
               <img
                 src={c.img}
@@ -186,7 +192,9 @@ function QuizGame({ id, onClear, onExit }) {
         ))}
       </div>
 
-      {popupMsg && <CustomPopup message={popupMsg} onClose={handleClosePopup} />}
+      {popupMsg && (
+        <CustomPopup message={popupMsg} onClose={handleClosePopup} />
+      )}
     </div>
   );
 }

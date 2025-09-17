@@ -6,7 +6,12 @@ import CustomPopup from "../components/CustomPopup";
  * - STOP 누르는 순간 🔥 위치 고정 (paused)
  * - 목표 범위면 onClear(), 아니면 팝업 → 닫으면 재개
  */
-function TimingGame({ id, onClear, onExit, furnaceImg = "/icons/ico_firedoom.png" }) {
+function TimingGame({
+  id,
+  onClear,
+  onExit,
+  furnaceImg = "/icons/ico_firedoom.webp",
+}) {
   const [pos, setPos] = useState(0); // 0~100 (%)
   const dirRef = useRef(1); // 1: →, -1: ←
   const rafRef = useRef(null);
@@ -96,7 +101,7 @@ function TimingGame({ id, onClear, onExit, furnaceImg = "/icons/ico_firedoom.png
       <div
         className="mb-4 flex items-center justify-center mx-auto relative"
         style={{
-          backgroundImage: "url('/panels/head_ribbon_shade_blue.png')",
+          backgroundImage: "url('/panels/head_ribbon_shade_blue.webp')",
           backgroundSize: "100% 100%",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
@@ -109,7 +114,7 @@ function TimingGame({ id, onClear, onExit, furnaceImg = "/icons/ico_firedoom.png
           style={{
             color: "white",
             fontWeight: "bold",
-            top:"17%",
+            top: "17%",
             textShadow: `
               -1px -1px 0 #3e5bb7,  
               1px -1px 0 #3e5bb7,
@@ -168,12 +173,11 @@ function TimingGame({ id, onClear, onExit, furnaceImg = "/icons/ico_firedoom.png
             onClick={stop}
             className="p-8"
             style={{
-              backgroundImage: `url('/icons/icon_big_checkmark.png')`,
+              backgroundImage: `url('/icons/icon_big_checkmark.webp')`,
               backgroundSize: "100% 100%",
               aspectRatio: "1/1.1",
             }}
-          >
-          </button>
+          ></button>
         </div>
       </div>
 

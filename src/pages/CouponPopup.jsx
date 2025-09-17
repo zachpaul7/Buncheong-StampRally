@@ -16,7 +16,7 @@ function CouponPopup({ onClose }) {
       <div
         className="relative p-4 text-center w-72 h-80 flex flex-col items-center -translate-y-8"
         style={{
-          backgroundImage: "url('/panels/panel_altem.png')",
+          backgroundImage: "url('/panels/panel_altem.webp')",
           backgroundSize: "100% 100%",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
@@ -42,7 +42,7 @@ function CouponPopup({ onClose }) {
             onClick={onClose}
             className="w-14 h-14"
             style={{
-              backgroundImage: "url('/icons/icon_big_checkmark.png')",
+              backgroundImage: "url('/icons/icon_big_checkmark.webp')",
               backgroundSize: "contain",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",

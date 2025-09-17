@@ -1,7 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import CustomPopup from "../components/CustomPopup";
 
-function PuzzleGame({ id, onClear, onExit, imageUrl = "/icons/ico_bottle.png" }) {
+function PuzzleGame({
+  id,
+  onClear,
+  onExit,
+  imageUrl = "/icons/ico_bottle.webp",
+}) {
   const TILES = useMemo(() => {
     const arr = [];
     for (let row = 0; row < 3; row++) {
@@ -56,12 +61,12 @@ function PuzzleGame({ id, onClear, onExit, imageUrl = "/icons/ico_bottle.png" })
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full space-y-12">
       {/* 제목 리본 */}
       <div
         className="mb-4 flex items-center justify-center mx-auto relative"
         style={{
-          backgroundImage: "url('/panels/head_ribbon_shade_blue.png')",
+          backgroundImage: "url('/panels/head_ribbon_shade_blue.webp')",
           backgroundSize: "100% 100%",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
@@ -70,11 +75,11 @@ function PuzzleGame({ id, onClear, onExit, imageUrl = "/icons/ico_bottle.png" })
         }}
       >
         <p
-          className="text-white text-lg absolute"
+          className="text-white text-xl absolute"
           style={{
             color: "white",
             fontWeight: "bold",
-            top:"17%",
+            top: "17%",
             textShadow: `
               -1px -1px 0 #3e5bb7,  
               1px -1px 0 #3e5bb7,
@@ -87,13 +92,15 @@ function PuzzleGame({ id, onClear, onExit, imageUrl = "/icons/ico_bottle.png" })
         </p>
       </div>
 
-      <div className="mx-auto w-full max-w-sm p-4 mb-4"
+      <div
+        className="mx-auto w-full max-w-sm p-4 mb-4"
         style={{
-          backgroundImage: "url('/panels/panel_frame_night.png')",
+          backgroundImage: "url('/panels/panel_frame_night.webp')",
           backgroundSize: "100% 100%",
           backgroundRepeat: "no-repeat",
           minHeight: "170px",
-        }}>
+        }}
+      >
         <div className="grid grid-cols-3 gap-2">
           {TILES.map(({ i, pos }) => (
             <button

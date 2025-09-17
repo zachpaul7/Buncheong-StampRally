@@ -17,7 +17,7 @@ function MapPage() {
           className="flex items-center w-14 h-14"
         >
           <img
-            src="/icons/btn_back.png"
+            src="/icons/btn_back.webp"
             alt="홈으로"
             className="w-full h-full object-contain"
           />
@@ -33,7 +33,7 @@ function MapPage() {
           아래 QR 위치를 찾아 미션을 수행하세요.
         </p>
         <img
-          src="/icons/ico_map.png"
+          src="/icons/ico_map.webp"
           alt="행사장 지도"
           className="w-full"
           style={{ maxWidth: "100%" }}

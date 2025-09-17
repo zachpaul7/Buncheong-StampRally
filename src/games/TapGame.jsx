@@ -46,7 +46,7 @@ function TapGame({ id, onClear, onExit }) {
       <div
         className="mb-4 flex items-center justify-center mx-auto relative"
         style={{
-          backgroundImage: "url('/panels/head_ribbon_shade_blue.png')",
+          backgroundImage: "url('/panels/head_ribbon_shade_blue.webp')",
           backgroundSize: "100% 100%",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
@@ -79,10 +79,11 @@ function TapGame({ id, onClear, onExit }) {
         aria-label="knead-clay"
       >
         <img
-          src="/icons/ico_sand.png"
+          src="/icons/ico_sand.webp"
           alt="점토"
-          className={`w-[80%] h-[80%] p-4 object-contain pointer-events-none transition-transform duration-150 ${isTapped ? "scale-110" : "scale-100"
-            }`}
+          className={`w-[80%] h-[80%] p-4 object-contain pointer-events-none transition-transform duration-150 ${
+            isTapped ? "scale-110" : "scale-100"
+          }`}
         />
       </div>
 
@@ -90,7 +91,7 @@ function TapGame({ id, onClear, onExit }) {
         <div
           className="w-full h-12 overflow-hidden flex items-center"
           style={{
-            backgroundImage: "url('/panels/progress_bar_framedark.png')",
+            backgroundImage: "url('/panels/progress_bar_framedark.webp')",
             backgroundSize: "100% 100%",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
@@ -106,22 +107,24 @@ function TapGame({ id, onClear, onExit }) {
               marginTop: "-1px",
             }}
           />
-
         </div>
-        <div className="mt-3 text-center text-xl font-semibold text-white"
+        <div
+          className="mt-3 text-center text-xl font-semibold text-white"
           style={{
             textShadow: `
                 -1px -1px 0 #000,  
                 1px -1px 0 #000,
                 -1px  1px 0 #000,
                 1px  1px 0 #000
-              `
-          }}> {progress}% </div>
+              `,
+          }}
+        >
+          {" "}
+          {progress}%{" "}
+        </div>
         {showPopup && <CustomPopup onClose={handleClosePopup} />}
       </div>
-
     </div>
-
   );
 }
 

@@ -46,7 +46,7 @@ export default function ColoringGame({ onClear, onExit }) {
     ctxRef.current = context;
 
     const maskImg = new Image();
-    maskImg.src = "/icons/ico_bottle_white.png";
+    maskImg.src = "/icons/ico_bottle_white.webp";
     maskImg.onload = () => {
       context.clearRect(0, 0, canvas.width, canvas.height);
       context.drawImage(maskImg, 0, 0, canvas.width, canvas.height);
@@ -112,12 +112,8 @@ export default function ColoringGame({ onClear, onExit }) {
     const scaleX = canvas.width / rect.width;
     const scaleY = canvas.height / rect.height;
 
-    return [
-      (clientX - rect.left) * scaleX,
-      (clientY - rect.top) * scaleY,
-    ];
+    return [(clientX - rect.left) * scaleX, (clientY - rect.top) * scaleY];
   }
-
 
   function startPainting(e) {
     setPainting(true);
@@ -208,12 +204,12 @@ export default function ColoringGame({ onClear, onExit }) {
   };
 
   return (
-    <div className="w-full p-2 space-y-12">
+    <div className="w-full space-y-12">
       {/* 제목 리본 */}
       <div
         className="mb-4 flex items-center justify-center mx-auto relative"
         style={{
-          backgroundImage: "url('/panels/head_ribbon_shade_blue.png')",
+          backgroundImage: "url('/panels/head_ribbon_shade_blue.webp')",
           backgroundSize: "100% 100%",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
@@ -222,7 +218,7 @@ export default function ColoringGame({ onClear, onExit }) {
         }}
       >
         <p
-          className="text-white text-lg absolute"
+          className="text-white text-xl absolute"
           style={{
             color: "white",
             fontWeight: "bold",
@@ -241,7 +237,7 @@ export default function ColoringGame({ onClear, onExit }) {
 
       <canvas
         ref={canvasRef}
-        className="w-4/5 h-auto touch-none mx-auto"   // ✅ CSS로 줄여서 표시 (예: 80%)
+        className="w-4/5 h-auto touch-none mx-auto" // ✅ CSS로 줄여서 표시 (예: 80%)
         onMouseDown={startPainting}
         onMouseUp={stopPainting}
         onMouseMove={paint}
@@ -255,7 +251,7 @@ export default function ColoringGame({ onClear, onExit }) {
         <div
           className="w-full h-12 overflow-hidden flex items-center"
           style={{
-            backgroundImage: "url('/panels/progress_bar_framedark.png')",
+            backgroundImage: "url('/panels/progress_bar_framedark.webp')",
             backgroundSize: "100% 100%",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
@@ -292,8 +288,6 @@ export default function ColoringGame({ onClear, onExit }) {
         {/* 팝업 */}
         {showPopup && <CustomPopup onClose={handleClosePopup} />}
       </div>
-
-
     </div>
   );
 }

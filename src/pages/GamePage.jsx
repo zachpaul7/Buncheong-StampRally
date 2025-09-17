@@ -53,13 +53,10 @@ function GamePage() {
       }}
     >
       {/* 상단 영역 */}
-      <div className="flex items-center justify-end mb-8">
-        <button
-          onClick={goHome}
-          className="w-14 h-14 transition-transform"
-        >
+      <div className="flex items-center justify-end mb-4">
+        <button onClick={goHome} className="w-14 h-14 transition-transform">
           <img
-            src="/icons/btn_back.png"
+            src="/icons/btn_back.webp"
             alt="홈으로"
             className="w-full h-full object-contain"
           />

@@ -106,7 +106,7 @@ function RewardPage() {
           const link = document.createElement("a");
           const date = new Date().toISOString().replace(/[:.]/g, "-");
           link.href = url;
-          link.download = `reward-${date}.png`;
+          link.download = `reward-${date}.webp`;
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
@@ -130,10 +130,12 @@ function RewardPage() {
   }
 
   return (
-    <div className="min-h-screen max-w-md mx-auto px-4 space-y-4"
+    <div
+      className="min-h-screen max-w-md mx-auto px-4 space-y-4"
       style={{
         background: "linear-gradient(to bottom, #00aff0, #a6daf0)", // 하늘색 → 연한 하늘색 그라데이션
-      }}>
+      }}
+    >
       {/* 상단 헤더 */}
       <div className="flex justify-end items-center mb-8">
         <button
@@ -141,13 +143,13 @@ function RewardPage() {
           className="flex items-center w-14 h-14 "
         >
           <img
-            src="/icons/btn_back.png"
+            src="/icons/btn_back.webp"
             alt="홈으로"
             className="w-full h-full object-contain"
           />
         </button>
       </div>
-      
+
       {/* 카메라 + 오버레이 */}
       <div className="relative w-full h-[55vh] border rounded-lg overflow-hidden shadow">
         <video
@@ -158,7 +160,7 @@ function RewardPage() {
         />
         <img
           ref={overlayRef}
-          src="/icons/ico_bottle_white.png"
+          src="/icons/ico_bottle_white.webp"
           alt="보상 오버레이"
           className="absolute inset-0 w-40 h-40 m-auto pointer-events-none"
         />
@@ -170,18 +172,18 @@ function RewardPage() {
           onClick={capturePhoto}
           className="w-20 h-20 text-white font-bold"
           style={{
-            backgroundImage: "url('/icons/Camera - Blue.png')",
+            backgroundImage: "url('/icons/Camera - Blue.webp')",
             backgroundSize: "contain",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
           }}
-        >
-        </button>
+        ></button>
       </div>
-      
+
       <p className="text-base font-bold text-gray-800 text-center">
-        카메라 위에 표시된 캐릭터와 함께 
-        <br />촬영 버튼을 눌러 저장하세요.
+        카메라 위에 표시된 캐릭터와 함께
+        <br />
+        촬영 버튼을 눌러 저장하세요.
       </p>
 
       {/* 숨겨진 캔버스 */}

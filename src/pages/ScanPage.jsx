@@ -85,10 +85,12 @@ function ScanPage() {
   }
 
   return (
-    <div className="min-h-screen max-w-md mx-auto px-4 space-y-6"
+    <div
+      className="min-h-screen max-w-md mx-auto px-4 space-y-6"
       style={{
         background: "linear-gradient(to bottom, #00aff0, #a6daf0)", // 하늘색 → 연한 하늘색 그라데이션
-      }}>
+      }}
+    >
       {/* 상단 헤더 */}
       <div className="flex justify-end items-center mb-8">
         <button
@@ -96,7 +98,7 @@ function ScanPage() {
           className="flex items-center w-14 h-14 "
         >
           <img
-            src="/icons/btn_back.png"
+            src="/icons/btn_back.webp"
             alt="홈으로"
             className="w-full h-full object-contain"
           />
@@ -117,20 +119,19 @@ function ScanPage() {
           <div className="w-80 h-80 border-4 border-red-500 rounded"></div>
         </div>
       </div>
-      
+
       {/* 스캔 버튼 */}
       <div className="mt-4 text-center flex items-center justify-center">
         <button
           onClick={scanQRCode}
           className="w-20 h-20 text-white font-bold"
           style={{
-            backgroundImage: "url('/icons/Camera - Blue.png')",
+            backgroundImage: "url('/icons/Camera - Blue.webp')",
             backgroundSize: "contain",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
           }}
-        >
-        </button>
+        ></button>
       </div>
 
       <p className="text-base font-bold text-gray-800 text-center">

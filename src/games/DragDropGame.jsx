@@ -68,12 +68,12 @@ function DragDropGame({ id, onClear, onExit }) {
   };
 
   return (
-    <div className="w-full p-3 space-y-4">
+    <div className="w-full space-y-62">
       {/* 제목 리본 */}
       <div
         className="mb-4 flex items-center justify-center mx-auto relative"
         style={{
-          backgroundImage: "url('/panels/head_ribbon_shade_blue.png')",
+          backgroundImage: "url('/panels/head_ribbon_shade_blue.webp')",
           backgroundSize: "100% 100%",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
@@ -82,7 +82,7 @@ function DragDropGame({ id, onClear, onExit }) {
         }}
       >
         <p
-          className="text-white text-lg absolute"
+          className="text-white text-xl absolute"
           style={{
             color: "white",
             fontWeight: "bold",
@@ -104,14 +104,14 @@ function DragDropGame({ id, onClear, onExit }) {
         className="relative py-6 px-12 flex items-center justify-center overflow-hidden"
       >
         <img
-          src="/icons/ico_firedoom.png"
+          src="/icons/ico_firedoom.webp"
           alt="furnace"
           className="object-cover w-full h-full"
         />
-
       </div>
 
-      <div className="text-white font-bold text-xl flex items-center justify-center mx-auto relative pb-6"
+      <div
+        className="text-white font-bold text-xl flex items-center justify-center mx-auto relative pb-6"
         style={{
           textShadow: `
         -1px -1px 0 #000,  
@@ -119,7 +119,8 @@ function DragDropGame({ id, onClear, onExit }) {
         -1px  1px 0 #000,
          1px  1px 0 #000
       `,
-        }}>
+        }}
+      >
         장작 {placed.length}개 투입됨
       </div>
 
@@ -127,14 +128,15 @@ function DragDropGame({ id, onClear, onExit }) {
         {items.map((item) => (
           <img
             key={item}
-            src="/log.png"
+            src="/icons/log.webp"
             alt={item}
             draggable={false}
             onTouchStart={() => handleTouchStart(item)}
-            className={`w-16 h-16 object-contain cursor-pointer ${placed.includes(item)
+            className={`w-16 h-16 object-contain cursor-pointer ${
+              placed.includes(item)
                 ? "opacity-30 cursor-not-allowed"
                 : "hover:opacity-80"
-              }`}
+            }`}
           />
         ))}
       </div>
