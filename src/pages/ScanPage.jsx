@@ -32,13 +32,13 @@ function ScanPage() {
       const stream = await navigator.mediaDevices.getUserMedia({
         video: {
           facingMode: "environment",
-          width: { ideal: 1920 }, // ✅ 해상도 Full HD
+          width: { ideal: 1920 },
           height: { ideal: 1080 },
         },
       });
       streamRef.current = stream;
       video.srcObject = stream;
-      video.setAttribute("playsinline", true); // iOS 전체화면 방지
+      video.setAttribute("playsinline", true);
       await video.play();
     } catch (err) {
       console.error("카메라 실행 실패:", err.name, err.message);
@@ -54,7 +54,6 @@ function ScanPage() {
     const ctx = canvas.getContext("2d");
 
     if (video.readyState === video.HAVE_ENOUGH_DATA) {
-      // 현재 비디오 프레임을 캡처
       canvas.width = video.videoWidth;
       canvas.height = video.videoHeight;
       ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
@@ -65,11 +64,18 @@ function ScanPage() {
       });
 
       if (code) {
-        if (code.data.startsWith("game/")) {
-          const gameId = code.data.split("/")[1];
-          stopCamera();
-          navigate(`/game/${gameId}`);
-        } else {
+        try {
+          const url = new URL(code.data);
+          const to = url.searchParams.get("to");
+
+          if (to && to.startsWith("/game/")) {
+            stopCamera();
+            navigate(`/index.html${to}`);
+            return;
+          }
+
+          alert("올바르지 않은 QR 코드입니다.");
+        } catch (e) {
           alert("올바르지 않은 QR 코드입니다.");
         }
       } else {
@@ -88,13 +94,13 @@ function ScanPage() {
     <div
       className="min-h-screen max-w-md mx-auto px-4 space-y-6"
       style={{
-        background: "linear-gradient(to bottom, #00aff0, #a6daf0)", // 하늘색 → 연한 하늘색 그라데이션
+        background: "linear-gradient(to bottom, #00aff0, #a6daf0)",
       }}
     >
       {/* 상단 헤더 */}
       <div className="flex justify-end items-center mb-8">
         <button
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/index.html")}
           className="flex items-center w-14 h-14 "
         >
           <img
@@ -113,8 +119,6 @@ function ScanPage() {
           autoPlay
           playsInline
         />
-
-        {/* 스캔 가이드 박스 */}
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-80 h-80 border-4 border-red-500 rounded"></div>
         </div>
@@ -138,10 +142,8 @@ function ScanPage() {
         촬영 버튼을 눌러 QR코드를 스캔하세요!
       </p>
 
-      {/* 숨겨진 캔버스 (QR 분석용) */}
       <canvas ref={canvasRef} className="hidden" />
 
-      {/* 권한 관련 안내 */}
       {needsUserAction && !permissionDenied && (
         <div className="mt-4 text-center">
           <button

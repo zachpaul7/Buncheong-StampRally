@@ -139,7 +139,7 @@ function RewardPage() {
       {/* 상단 헤더 */}
       <div className="flex justify-end items-center mb-8">
         <button
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/index.html")}
           className="flex items-center w-14 h-14 "
         >
           <img
@@ -216,7 +216,9 @@ function RewardPage() {
       )}
 
       {/* ✅ 쿠폰 팝업 */}
-      {code && <CouponPopup code={code} onClose={() => navigate("/")} />}
+      {code && (
+        <CouponPopup code={code} onClose={() => navigate("/index.html")} />
+      )}
     </div>
   );
 }

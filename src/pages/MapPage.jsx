@@ -13,7 +13,7 @@ function MapPage() {
       {/* 상단 헤더 */}
       <div className="flex justify-end items-center mb-8">
         <button
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/index.html")}
           className="flex items-center w-14 h-14"
         >
           <img

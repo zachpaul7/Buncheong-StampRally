@@ -42,7 +42,8 @@ function MainPage() {
 
   const allCleared = clearedPieces.length === pieces.length;
 
-  const handleClick = (id) => navigate(`/game/${id}`);
+  // 퍼즐 클릭 시
+  const handleClick = (id) => navigate(`/index.html?to=/game/${id}`);
 
   // ✅ 초기화 시 쿠폰 기록도 삭제
   const handleReset = () => {
@@ -56,7 +57,10 @@ function MainPage() {
     <div
       className="flex flex-col h-screen"
       style={{
-        background: "linear-gradient(to bottom, #00aff0, #a6daf0)", // 하늘색 → 연한 하늘색 그라데이션
+        backgroundImage: "url('/panels/Panel_BackGround_Blue.webp')", // 원하는 이미지 경로
+        backgroundSize: "cover", // 화면 꽉 채우기
+        backgroundPosition: "center", // 가운데 정렬
+        backgroundRepeat: "no-repeat", // 반복 방지
       }}
     >
       {/* 퍼즐 영역 */}
@@ -126,7 +130,7 @@ function MainPage() {
         <div className="flex gap-6 w-full max-w-md justify-center my-4">
           {/* 지도 버튼 */}
           <Link
-            to="/map"
+            to="/index.html?to=/map"
             className="w-16 h-16 flex items-center justify-center"
             style={{
               backgroundImage: "url('/icons/btn_hex_green.webp')",
@@ -138,7 +142,7 @@ function MainPage() {
 
           {/* QR 스캔 버튼 */}
           <Link
-            to="/scan"
+            to="/index.html?to=/scan"
             className="w-32 h-16 flex items-center justify-center text-white font-bold"
             style={{
               backgroundImage: "url('/icons/btn_rectangle_pressed_blue.webp')",
@@ -152,11 +156,13 @@ function MainPage() {
           {allCleared && (
             <button
               onClick={() =>
-                rewardClaimed ? setShowCoupon(true) : navigate("/reward")
+                rewardClaimed
+                  ? setShowCoupon(true)
+                  : navigate("/index.html?to=/reward")
               }
               className="w-16 h-16 flex items-center justify-center text-white font-bold"
               style={{
-                backgroundImage: "url('/icons/btn_ticket.webp')", // 쿠폰 전용 버튼 이미지
+                backgroundImage: "url('/icons/btn_ticket.webp')",
                 backgroundSize: "contain",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
@@ -165,8 +171,8 @@ function MainPage() {
           )}
         </div>
 
-        {/* 개발용 초기화 버튼 (필요 없으면 주석 처리 or 삭제) */}
-        {import.meta.env.DEV && (
+        {/* 개발용 초기화 버튼 (필요 없으면 주석 처리 or 삭제) import.meta.env.DEV  */}
+        {true && (
           <div className="mt-2">
             <button
               onClick={handleReset}

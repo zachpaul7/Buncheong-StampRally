@@ -1,4 +1,3 @@
-import { useParams, useNavigate } from "react-router-dom";
 import useGameStore from "../store/useGameStore";
 import QuizGame from "../games/QuizGame";
 import PuzzleGame from "../games/PuzzleGame";
@@ -8,19 +7,17 @@ import TimingGame from "../games/TimingGame";
 import ColoringGame from "../games/ColoringGame";
 import DragDropGame from "../games/DragDropGame";
 
-function GamePage() {
-  const { id } = useParams();
-  const navigate = useNavigate();
+function GamePage({ id }) {
   const clearGame = useGameStore((s) => s.clearGame);
   const gameId = Number(id);
 
-  const goHome = () => navigate("/");
-
-  // ✅ 클리어: store에 기록(1-based) → 홈
+  // ✅ 클리어 후 홈 이동
   const onClear = () => {
     clearGame(gameId);
-    navigate("/");
+    window.location.href = "/index.html"; // 쿼리 없이 홈으로
   };
+
+  const goHome = () => (window.location.href = "/index.html");
 
   const gameProps = { id: gameId, onExit: goHome, onClear };
 
@@ -49,10 +46,9 @@ function GamePage() {
     <div
       className="min-h-screen max-w-md mx-auto px-4"
       style={{
-        background: "linear-gradient(to bottom, #00aff0, #a6daf0)", // 하늘색 → 연한 하늘색 그라데이션
+        background: "linear-gradient(to bottom, #00aff0, #a6daf0)",
       }}
     >
-      {/* 상단 영역 */}
       <div className="flex items-center justify-end mb-4">
         <button onClick={goHome} className="w-14 h-14 transition-transform">
           <img
@@ -62,8 +58,6 @@ function GamePage() {
           />
         </button>
       </div>
-
-      {/* 게임 렌더링 */}
       <div>{renderGame()}</div>
     </div>
   );
